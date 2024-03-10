@@ -1,11 +1,29 @@
+import Link from "next/link";
 
 const Products = () => {
+    const products = [
+        {
+            id: 1, name: "Product 1"
+        },
+        {
+            id: 2, name: "Product 2"
+        },
+        {
+            id: 3, name: "Product 3"
+        },
+        {
+            id: 4, name: "Product 4"
+        },
+        {
+            id: 5, name: "Product 5"
+        },
+    ];
     return <ul>
-        <li onClick={() => { /* Navegar para esse produto */ }} >Product 1</li>
-        <li>Product 2</li>
-        <li>Product 3</li>
-        <li>Product 4</li>
-        <li>Product 5</li>
+        {products.map(item => <li key={item.id}>
+            <Link href={`products/${item.id}`}>
+                {item.name}
+            </Link>
+        </li>)}
     </ul>
 }
 
